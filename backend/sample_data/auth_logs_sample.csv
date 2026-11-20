@@ -1,0 +1,31 @@
+timestamp,username,ip_address,auth_service,status,failure_reason,location,user_agent
+2026-11-20 09:12:04,alice.miller,192.168.1.45,Web-Portal,SUCCESS,,Internal Corporate (NY),Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+2026-11-20 09:15:33,bob.ross,192.168.1.88,Web-Portal,SUCCESS,,Internal Corporate (NY),Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+2026-11-20 09:20:11,clara.chen,192.168.2.14,VPN,SUCCESS,,Internal Corporate (London),Cisco-AnyConnect-VPN-Client
+2026-11-20 09:44:22,david.kim,192.168.1.102,SSH,SUCCESS,,Internal Subnet (DataCenter),OpenSSH_8.9p1
+2026-11-20 10:05:01,david.kim,192.168.1.102,Web-Portal,SUCCESS,,Internal Corporate (NY),Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+2026-11-20 11:15:10,elena.rostova,203.0.113.88,Web-Portal,FAILURE,Invalid password,Moscow (RU),Mozilla/5.0 (X11; Linux x86_64)
+2026-11-20 11:16:02,elena.rostova,203.0.113.88,Web-Portal,FAILURE,Invalid password,Moscow (RU),Mozilla/5.0 (X11; Linux x86_64)
+2026-11-20 11:16:45,elena.rostova,203.0.113.88,Web-Portal,FAILURE,Invalid password,Moscow (RU),Mozilla/5.0 (X11; Linux x86_64)
+2026-11-20 11:17:15,elena.rostova,203.0.113.88,Web-Portal,FAILURE,Invalid password,Moscow (RU),Mozilla/5.0 (X11; Linux x86_64)
+2026-11-20 11:17:50,elena.rostova,203.0.113.88,Web-Portal,FAILURE,Invalid password,Moscow (RU),Mozilla/5.0 (X11; Linux x86_64)
+2026-11-20 11:18:22,elena.rostova,203.0.113.88,Web-Portal,FAILURE,Account locked after attempts,Moscow (RU),Mozilla/5.0 (X11; Linux x86_64)
+2026-11-20 13:00:10,frank.wright,192.168.1.55,Web-Portal,SUCCESS,,Internal Corporate (NY),Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+2026-11-20 14:10:05,grace.hopper,192.168.1.60,ActiveDirectory,SUCCESS,,Internal Corporate (NY),Kerberos-Auth-Agent
+2026-11-20 14:30:12,sysadmin,198.51.100.24,SSH,FAILURE,Public key rejected,Bucharest (RO),libssh2/1.9.0
+2026-11-20 14:31:02,dbadmin,198.51.100.24,SSH,FAILURE,Public key rejected,Bucharest (RO),libssh2/1.9.0
+2026-11-20 14:31:55,root,198.51.100.24,SSH,FAILURE,Invalid credentials,Bucharest (RO),libssh2/1.9.0
+2026-11-20 14:32:40,deployer,198.51.100.24,SSH,FAILURE,Access denied,Bucharest (RO),libssh2/1.9.0
+2026-11-20 15:45:00,henry.ford,192.168.1.75,Web-Portal,SUCCESS,,Internal Corporate (NY),Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+2026-11-20 16:20:18,irene.adler,185.220.101.5,Web-Portal,FAILURE,Invalid password,Tor Exit Node (DE),Mozilla/5.0 (Windows NT 10.0; rv:109.0)
+2026-11-20 16:21:05,irene.adler,185.220.101.5,Web-Portal,FAILURE,Invalid password,Tor Exit Node (DE),Mozilla/5.0 (Windows NT 10.0; rv:109.0)
+2026-11-20 16:21:42,irene.adler,185.220.101.5,Web-Portal,FAILURE,Invalid password,Tor Exit Node (DE),Mozilla/5.0 (Windows NT 10.0; rv:109.0)
+2026-11-20 16:22:15,irene.adler,185.220.101.5,Web-Portal,FAILURE,Invalid password,Tor Exit Node (DE),Mozilla/5.0 (Windows NT 10.0; rv:109.0)
+2026-11-20 16:22:50,irene.adler,185.220.101.5,Web-Portal,FAILURE,Invalid password,Tor Exit Node (DE),Mozilla/5.0 (Windows NT 10.0; rv:109.0)
+2026-11-20 16:23:30,irene.adler,185.220.101.5,Web-Portal,SUCCESS,,Tor Exit Node (DE),Mozilla/5.0 (Windows NT 10.0; rv:109.0)
+2026-11-20 17:05:40,jack.sparrow,192.168.1.90,VPN,SUCCESS,,Internal Corporate (NY),Cisco-AnyConnect-VPN-Client
+2026-11-20 18:30:15,karen.page,192.168.1.95,Web-Portal,SUCCESS,,Internal Corporate (NY),Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+2026-11-20 23:45:10,admin,45.33.32.156,SSH,SUCCESS,,San Jose (US),OpenSSH_8.2p1
+2026-11-20 23:58:30,root,45.33.32.156,SSH,FAILURE,Password authentication failed,San Jose (US),OpenSSH_8.2p1
+2026-11-21 02:15:22,night_operator,192.168.1.120,Web-Portal,SUCCESS,,Internal DataCenter (NY),Mozilla/5.0 (X11; Ubuntu; Linux x86_64)
+2026-11-21 03:40:11,finance_audit,194.26.29.11,VPN,FAILURE,MFA token expired,Sofia (BG),Pulse-Secure-Client
