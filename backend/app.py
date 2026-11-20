@@ -9,22 +9,23 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     
     # Configure CORS to allow frontend communication with all required headers and methods
+    # Supports local development as well as any Vercel deployment preview / production domain
     CORS(
-        app,
-        resources={
-            r"/*": {
-                "origins": [
-                    "http://localhost:5173",
-                    "http://127.0.0.1:5173",
-                    "http://localhost:3000",
-                    "http://127.0.0.1:3000"
-                ]
-            }
-        },
-        supports_credentials=True,
-        allow_headers=["Content-Type", "Authorization", "Access-Control-Allow-Credentials"],
-        methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
-    )
+    app,
+    resources={
+        r"/api/*": {
+            "origins": [
+                "https://authentication-log-review-dashboard.vercel.app",
+                "http://localhost:5173",
+                "http://127.0.0.1:5173",
+                "http://localhost:3000",
+                "http://127.0.0.1:3000"
+            ]
+        }
+    },
+    allow_headers=["Content-Type", "Authorization"],
+    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+)
     
     # Initialize Database
     db.init_app(app)
@@ -65,8 +66,9 @@ def create_app(config_class=Config):
     # Database initialization hook
     with app.app_context():
         db.create_all()
-        # Seed default SOC analyst if none exists
-        if not User.query.filter_by(username='analyst').first():
+        # Seed or refresh default SOC analyst credentials
+        analyst = User.query.filter_by(username='analyst').first()
+        if not analyst:
             demo_user = User(
                 username='analyst',
                 email='analyst@soc-defense.io',
@@ -76,6 +78,13 @@ def create_app(config_class=Config):
             db.session.add(demo_user)
             db.session.commit()
             print("Default SOC Analyst created: analyst / Analyst123!")
+        else:
+            # Ensure the password hash for 'analyst' always matches 'Analyst123!'
+            # in case an old database instance had a different or corrupted hash
+            if not analyst.check_password('Analyst123!'):
+                analyst.set_password('Analyst123!')
+                db.session.commit()
+                print("Default SOC Analyst password synced: analyst / Analyst123!")
             
     return app
 

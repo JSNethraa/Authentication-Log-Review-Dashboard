@@ -19,7 +19,12 @@ export default function Login() {
       await login(username, password);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.error || 'Authentication failure. Check credentials.');
+      if (!err.response) {
+        // Network-level error: Render backend asleep or CORS blocked
+        setError('Cannot reach authentication server. The backend may be spinning up from idle (please wait 30s) or check your API base URL.');
+      } else {
+        setError(err.response?.data?.error || 'Authentication failure. Check credentials.');
+      }
     } finally {
       setLoading(false);
     }

@@ -53,14 +53,16 @@ def register():
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
-    data = request.get_json() or {}
-    username = data.get('username', '').strip()
-    password = data.get('password', '')
+    data = request.get_json(silent=True) or {}
+    # Accept case-insensitive or trimmed username
+    raw_username = data.get('username') or data.get('user') or ''
+    username = str(raw_username).strip()
+    password = data.get('password') or ''
     
     if not username or not password:
         return jsonify({'error': 'Username and password are required.'}), 400
         
-    user = User.query.filter_by(username=username).first()
+    user = User.query.filter(User.username.ilike(username)).first()
     if not user or not user.check_password(password):
         return jsonify({'error': 'Invalid username or credentials.'}), 401
         
